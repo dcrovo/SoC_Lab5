@@ -1,0 +1,8 @@
+#Ignore al pdf files
+*.pdf
+
+#Ignoring Quartus db
+db/
+incremental_db/
+nios_led3/synthesis/
+RemoteSystemsTempFiles/

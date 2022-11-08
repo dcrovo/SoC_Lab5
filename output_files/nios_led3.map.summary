@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Tue Nov  8 04:37:43 2022
+Quartus Prime Version : 21.1.1 Build 850 06/23/2022 SJ Lite Edition
+Revision Name : nios_led3
+Top-level Entity Name : nios_led3_top
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 1397
+Total pins : 53
+Total virtual pins : 0
+Total block memory bits : 1,059,840
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0
