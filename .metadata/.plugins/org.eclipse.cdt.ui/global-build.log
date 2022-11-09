@@ -678,3 +678,59 @@ Info: Building ../nios_led3_bsp/
 make --no-print-directory -C ../nios_led3_bsp/
 [BSP build complete]
 [nios_led3 build complete]
+14:16:47 **** Build of configuration Nios II for project nios_led3 ****
+make all 
+Info: Building ../nios_led3_bsp/
+make --no-print-directory -C ../nios_led3_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../nios_led3_bsp//HAL/inc -I../nios_led3_bsp/ -I../nios_led3_bsp//drivers/inc -pipe -D__hal__ -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o "obj/default/main.o" "main.c"
+main.c: In function 'led_flash_v3':
+main.c:87:21: warning: implicit declaration of function 'alt_nticks' [-Wimplicit-function-declaration]
+   87 |         now = (int)(alt_nticks()*alt_ticks_per_second()/1000);
+      |                     ^~~~~~~~~~
+main.c:87:34: warning: implicit declaration of function 'alt_ticks_per_second' [-Wimplicit-function-declaration]
+   87 |         now = (int)(alt_nticks()*alt_ticks_per_second()/1000);
+      |                                  ^~~~~~~~~~~~~~~~~~~~
+Info: Linking nios_led3.elf
+nios2-elf-g++ -T'../nios_led3_bsp//linker.x' -msys-crt0='../nios_led3_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../nios_led3_bsp/   -Wl,-Map=nios_led3.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o nios_led3.elf obj/default/gpio.o obj/default/main.o -lm -msys-lib=m
+/home/danielcrovo/intelFPGA_lite/21.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/11.2.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/bin/ld: /home/danielcrovo/intelFPGA_lite/21.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/11.2.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libc.a(closer.o): in function `_close_r':
+/build/arc/temp/1089618295/ACDS_lwr/ip/sopc/app/gnu/BUILD/gnu/build-newlib.nios2-elf.x86_64-pc-linux-gnu/nios2-elf/mno-hw-mul/newlib/libc/reent/../../../../../../src/newlib-4.1.0/newlib/libc/reent/closer.c:47: warning: warning: close is not implemented and will always fail
+/home/danielcrovo/intelFPGA_lite/21.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/11.2.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/bin/ld: /home/danielcrovo/intelFPGA_lite/21.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/11.2.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libc.a(lib_a-lseekr.o): in function `_lseek_r':
+/build/arc/temp/1089618295/ACDS_lwr/ip/sopc/app/gnu/BUILD/gnu/build-newlib.nios2-elf.x86_64-pc-linux-gnu/nios2-elf/mno-hw-mul/newlib/libc/reent/../../../../../../src/newlib-4.1.0/newlib/libc/reent/lseekr.c:49: warning: warning: lseek is not implemented and will always fail
+/home/danielcrovo/intelFPGA_lite/21.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/11.2.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/bin/ld: obj/default/main.o: in function `led_flash_v3':
+/home/danielcrovo/Documents/Daniel/01.Study/01.MScEE/02.Semester2/SoC/Lab5_SoC/software/nios_led3/main.c:87: undefined reference to `alt_nticks'
+/home/danielcrovo/intelFPGA_lite/21.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/11.2.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/bin/ld: /home/danielcrovo/Documents/Daniel/01.Study/01.MScEE/02.Semester2/SoC/Lab5_SoC/software/nios_led3/main.c:87: undefined reference to `alt_ticks_per_second'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:1016: nios_led3.elf] Error 1
+14:23:05 **** Incremental Build of configuration Nios II for project nios_led3 ****
+make all 
+Info: Building ../nios_led3_bsp/
+make --no-print-directory -C ../nios_led3_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../nios_led3_bsp//HAL/inc -I../nios_led3_bsp/ -I../nios_led3_bsp//drivers/inc -pipe -D__hal__ -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o "obj/default/main.o" "main.c"
+Info: Linking nios_led3.elf
+nios2-elf-g++ -T'../nios_led3_bsp//linker.x' -msys-crt0='../nios_led3_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../nios_led3_bsp/   -Wl,-Map=nios_led3.map   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o nios_led3.elf obj/default/gpio.o obj/default/main.o -lm -msys-lib=m
+/home/danielcrovo/intelFPGA_lite/21.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/11.2.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/bin/ld: /home/danielcrovo/intelFPGA_lite/21.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/11.2.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libc.a(closer.o): in function `_close_r':
+/build/arc/temp/1089618295/ACDS_lwr/ip/sopc/app/gnu/BUILD/gnu/build-newlib.nios2-elf.x86_64-pc-linux-gnu/nios2-elf/mno-hw-mul/newlib/libc/reent/../../../../../../src/newlib-4.1.0/newlib/libc/reent/closer.c:47: warning: warning: close is not implemented and will always fail
+/home/danielcrovo/intelFPGA_lite/21.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/11.2.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/bin/ld: /home/danielcrovo/intelFPGA_lite/21.1/nios2eds/bin/gnu/H-x86_64-pc-linux-gnu/bin/../lib/gcc/nios2-elf/11.2.1/../../../../../H-x86_64-pc-linux-gnu/nios2-elf/lib/mno-hw-mul/libc.a(lib_a-lseekr.o): in function `_lseek_r':
+/build/arc/temp/1089618295/ACDS_lwr/ip/sopc/app/gnu/BUILD/gnu/build-newlib.nios2-elf.x86_64-pc-linux-gnu/nios2-elf/mno-hw-mul/newlib/libc/reent/../../../../../../src/newlib-4.1.0/newlib/libc/reent/lseekr.c:49: warning: warning: lseek is not implemented and will always fail
+nios2-elf-insert nios_led3.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x41110 --timestamp 1667899888 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name nios_led3 --quartus_project_dir "/home/danielcrovo/Documents/Daniel/01.Study/01.MScEE/02.Semester2/SoC/Lab5_SoC" --jdi ../..//output_files/nios_led3.jdi --sopcinfo /home/danielcrovo/Documents/Daniel/01.Study/01.MScEE/02.Semester2/SoC/Lab5_SoC/software/nios_led3_bsp/../../nios_led3.sopcinfo
+Info: (nios_led3.elf) 105 KBytes program size (code + initialized data).
+Info:                 16 KBytes free for stack + heap.
+Info: Creating nios_led3.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_led3.elf >nios_led3.objdump
+[nios_led3 build complete]
+14:23:26 **** Build of configuration Nios II for project nios_led3 ****
+make all 
+Info: Building ../nios_led3_bsp/
+make --no-print-directory -C ../nios_led3_bsp/
+[BSP build complete]
+[nios_led3 build complete]
+14:23:26 **** Incremental Build of configuration Nios II for project nios_led3 ****
+make all 
+Info: Building ../nios_led3_bsp/
+make --no-print-directory -C ../nios_led3_bsp/
+[BSP build complete]
+[nios_led3 build complete]

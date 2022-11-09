@@ -11,7 +11,6 @@
 /* Altera specific library */
 #include "alt_types.h"
 #include "system.h"
-#include <sys/alt_alarm.h>
 #include "gpio.h"
 
 /********************************************************

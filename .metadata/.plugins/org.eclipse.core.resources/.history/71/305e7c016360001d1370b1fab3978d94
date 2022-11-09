@@ -11,7 +11,6 @@
 /* Altera specific library */
 #include "alt_types.h"
 #include "system.h"
-#include <sys/alt_alarm.h>
 #include "gpio.h"
 
 /********************************************************
@@ -78,7 +77,7 @@ void led_flash_v2(alt_u32 led_base, cmd_type cmd){
 * note :
 * 	The delay is done by continuously checking 1-ms tick
 ********************************************************************/
-void led_flash_v3(alt_u32 led_base, cmd_type cmd){
+void led_flash_v2(alt_u32 led_base, cmd_type cmd){
 	static alt_u8 led_pattern = 0x01;
 	static int last=0;
 	int now;
@@ -170,6 +169,6 @@ int main(){
 		sw_get_command_v1(BTN_BASE, SWITCH_BASE ,&sw_cmd, JTAG_UART_BASE);
 		jtag_uart_disp_msg_v2(sw_cmd);
 		sseg_disp_msg_v1(SSEG_BASE, sw_cmd);
-		led_flash_v3(LEDR_BASE,sw_cmd);
+		led_flash_v2(LEDR_BASE,sw_cmd);
 	}
 }

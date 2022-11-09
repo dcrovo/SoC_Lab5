@@ -71,3 +71,12 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING
 
 !ENTRY com.altera.sbtgui.launch 1 0 2022-11-09 14:11:17.875
 !MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [3-4]' --device=2 --instance=0 --go --sidp=0x41110 --id=0x0 --timestamp=1667899888 /home/danielcrovo/Documents/Daniel/01.Study/01.MScEE/02.Semester2/SoC/Lab5_SoC/software/nios_led3/nios_led3.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-11-09 14:23:26.733
+!MESSAGE Terminated Launch with connection: 20DE-SoC on localhost [3-4]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-11-09 14:23:26.938
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [3-4]' --device=2 --instance=0 --stop --sidp=0x41110 --id=0x0 --timestamp=1667899888]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2022-11-09 14:23:28.177
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=DE-SoC on localhost [3-4]' --device=2 --instance=0 --go --sidp=0x41110 --id=0x0 --timestamp=1667899888 /home/danielcrovo/Documents/Daniel/01.Study/01.MScEE/02.Semester2/SoC/Lab5_SoC/software/nios_led3/nios_led3.elf]

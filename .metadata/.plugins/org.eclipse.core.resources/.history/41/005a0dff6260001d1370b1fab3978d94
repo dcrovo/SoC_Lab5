@@ -11,7 +11,6 @@
 /* Altera specific library */
 #include "alt_types.h"
 #include "system.h"
-#include <sys/alt_alarm.h>
 #include "gpio.h"
 
 /********************************************************
@@ -68,30 +67,6 @@ void led_flash_v2(alt_u32 led_base, cmd_type cmd){
 	usleep(1000*cmd.prd); // delay for cmd.prd ms
 }
 
-
-/*******************************************************************
-* function: led.flash.v3 ()
-* purpose :
-* argument:
-* 	cmd: command
-* return:
-* note :
-* 	The delay is done by continuously checking 1-ms tick
-********************************************************************/
-void led_flash_v3(alt_u32 led_base, cmd_type cmd){
-	static alt_u8 led_pattern = 0x01;
-	static int last=0;
-	int now;
-	if (cmd.pause){ // no toggle if pause asserted
-		return;}
-
-	now = (int)(alt_nticks()*alt_ticks_per_second()/1000);
-	if ((now -last)<cmd.prd) //interval not reached
-		return;
-	last=now;
-	led_pattern ^= 0x03; // toggle 2 LSBs of LEDs
-	pio_write(led_base , led_pattern) ; // write LEDs
-}
 /*******************************************************************
 * function : sseg_disp_msg_v1(alt_u32 sseg_base, cmd_type cmd)
 * purpose: display the msg in the sseg
@@ -170,6 +145,6 @@ int main(){
 		sw_get_command_v1(BTN_BASE, SWITCH_BASE ,&sw_cmd, JTAG_UART_BASE);
 		jtag_uart_disp_msg_v2(sw_cmd);
 		sseg_disp_msg_v1(SSEG_BASE, sw_cmd);
-		led_flash_v3(LEDR_BASE,sw_cmd);
+		led_flash_v2(LEDR_BASE,sw_cmd);
 	}
 }
