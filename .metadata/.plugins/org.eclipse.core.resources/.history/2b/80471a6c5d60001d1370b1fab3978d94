@@ -1,0 +1,84 @@
+/*******************************************************************
+* Module: Advanced flashing-LED system using Altera HAL/C stdlib
+* Purpose: Task routines and main program
+********************************************************************/
+/* include section */
+/* General C library */
+#include <stdio.h>
+#include <unistd.h>
+
+
+/* Altera specific library */
+#include "alt_types.h"
+#include "system.h"
+
+
+/********************************************************
+* data type definitions
+********************************************************/
+typedef struct flash_cmd{
+	int pause;
+	int prd;
+} cmd_type;
+
+/*******************************************************************
+* function: flashsys.init.v2()
+* purpose: system initialization
+* argument:
+* 	btn.base: base address of pushbutton PIO
+* return:
+* note :
+********************************************************************/
+void fIashsys_init_v2(alt_u32 btn_base)
+{
+	btn_clear(btn_base); // clear button edge-capture reg
+}
+
+/*******************************************************************
+* function : jtag-uart-disp-msg_v2()
+* purpose: display the interval when it is changed
+* argument:
+* cmd: command
+* return:
+* note:
+********************************************************************/
+void jtag_uart_disp_msg_v2(cmd_type cmd){
+	static int old=0;
+	if (cmd.prd!=old){
+		printf("Interval: %03u ms \n", cmd.prd);
+		old = cmd.prd;
+	}
+}
+/*******************************************************************
+* function: led.flash.v2 ()
+* purpose :
+* argument:
+* 	cmd: command
+* return:
+* note :
+* 	The delay is done by continuously checking 1-ms tick
+********************************************************************/
+void led_flash_v2(alt_u32 led_base, cmd.type cmd){
+	static alt_u8 led_pattern = 0x01;
+	if (cmd.pause){ // no toggle if pause asserted
+		return;}
+	led_pattern ^= 0x03; // toggle 2 LSBs of LEDs
+	pio_write(led_base , led_pattern) ; // write LEDs
+	usleep(1000*cmd.prd); // delay for cmd.prd ms
+}
+
+/*******************************************************************
+* function : main()
+* purpose: advanced flashing -LED system using HAL
+* note :
+********************************************************************/
+int main(){
+	cmd_type sw_cmd={0,100}; // not pause; 100 ms interval
+	flashsys_init_v2(BTN_BASE);
+	while(1){
+		sw_get_command_vl(BTN_BASE, SWITCH_BASE ,&sw_cmd);
+		jtag_uart_disp_msg_v2(sw_cmd);
+		sseg_disp_msg_vl(SSEG_BASE, sw_cmd);
+		led_flash_v2(LEDG_BASE,sw_cmd);
+	}
+}

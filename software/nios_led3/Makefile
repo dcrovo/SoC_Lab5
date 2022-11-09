@@ -90,7 +90,8 @@ ACDS_VERSION := 21.1
 ELF := nios_led3.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS :=
+C_SRCS += main.c
+C_SRCS += gpio.c
 CXX_SRCS :=
 ASM_SRCS :=
 
